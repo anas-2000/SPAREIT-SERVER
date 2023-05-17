@@ -81,7 +81,7 @@ run().catch(console.dir);
 //     store: MongoStore.create({ mongoUrl: process.env.MONGO_URL })
 //   }));
 app.use(passport.initialize())
-app.use(passport.session())
+// app.use(passport.session()) commented for testing
 
 
 app.listen(process.env.PORT, () => {

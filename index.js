@@ -82,8 +82,16 @@ app.use("/api/revenue", revenueRoute)
 //     cookie: {secure: false}, // this won't work without https
 //     store: MongoStore.create({ mongoUrl: process.env.MONGO_URL })
 //   }));
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {secure: false}, // this won't work without https
+    store: MongoStore.create({ mongoUrl: uri})
+  }));
 app.use(passport.initialize())
-// app.use(passport.session()) commented for testing
+app.use(passport.session())  //commented for testing
 
 
 app.listen(process.env.PORT, () => {

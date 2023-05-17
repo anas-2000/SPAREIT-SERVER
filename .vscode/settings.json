@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "undefined/subscriptions/bb59fcb9-92cb-4fe6-89f5-4234317dfe4a/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/serverspareit",
+    "appService.deploySubpath": "."
+}

@@ -37,20 +37,6 @@ dotenv.config()
 
 require('./passport')(passport)
 
-// db()
-app.use(express.json())
-
-// app.use(cors()) // for deployment comment out
-app.use("/api/auth", authRoute)
-app.use("/api/users", userRoute)
-app.use("/api/products", productRoute)
-app.use("/api/carts", cartRoute)
-app.use("/api/orders", orderRoute)
-app.use("/api/stripe", stripeRoute)
-app.use("/api/comments", commentRoute)
-app.use("/api/revenue", revenueRoute)
-
-
 const client = new MongoClient(uri, {
   serverApi: {
     version: ServerApiVersion.v1,
@@ -72,6 +58,22 @@ async function run() {
   }
 }
 run().catch(console.dir);
+
+// db()
+app.use(express.json())
+
+// app.use(cors()) // for deployment comment out
+app.use("/api/auth", authRoute)
+app.use("/api/users", userRoute)
+app.use("/api/products", productRoute)
+app.use("/api/carts", cartRoute)
+app.use("/api/orders", orderRoute)
+app.use("/api/stripe", stripeRoute)
+app.use("/api/comments", commentRoute)
+app.use("/api/revenue", revenueRoute)
+
+
+
 
 // app.use(session({
 //     secret: 'keyboard cat',

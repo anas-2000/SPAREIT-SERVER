@@ -75,13 +75,13 @@ app.use("/api/revenue", revenueRoute)
 
 
 
-// app.use(session({
-//     secret: 'keyboard cat',
-//     resave: false,
-//     saveUninitialized: false,
-//     cookie: {secure: false}, // this won't work without https
-//     store: MongoStore.create({ mongoUrl: process.env.MONGO_URL })
-//   }));
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {secure: false}, // this won't work without https
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL })
+  }));
 
 app.use(session({
     secret: 'keyboard cat',
@@ -94,9 +94,9 @@ app.use(passport.initialize())
 app.use(passport.session())  //commented for testing
 
 
-// app.listen(process.env.PORT, () => {
-//     console.log(`listening on port ${process.env.PORT}...`)
-// })
+app.listen(process.env.PORT, () => {
+    console.log(`listening on port ${process.env.PORT}...`)
+})
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');

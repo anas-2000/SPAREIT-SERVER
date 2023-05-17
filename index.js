@@ -37,7 +37,7 @@ dotenv.config()
 
 require('./passport')(passport)
 
-db()
+// db()
 app.use(express.json())
 
 // app.use(cors()) // for deployment comment out
@@ -73,13 +73,13 @@ async function run() {
 }
 run().catch(console.dir);
 
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {secure: false}, // this won't work without https
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL })
-  }));
+// app.use(session({
+//     secret: 'keyboard cat',
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {secure: false}, // this won't work without https
+//     store: MongoStore.create({ mongoUrl: process.env.MONGO_URL })
+//   }));
 app.use(passport.initialize())
 app.use(passport.session())
 

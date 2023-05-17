@@ -1,5 +1,7 @@
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = 'mongodb+srv://anasabdullah:anas@cluster0.cmkxcsx.mongodb.net/?retryWrites=true&w=majority';
+const uri = 'mongodb+srv://anasabdullah:anas@cluster0.cmkxcsx.mongodb.net/SpareIT?retryWrites=true&w=majority';
+// const uri = 'mongodb+srv://anasabdullah:anas@cluster0.cmkxcsx.mongodb.net/';
+
 
 var createError = require('http-errors');
 var path = require('path');
@@ -35,31 +37,50 @@ dotenv.config()
 // });
 
 
-require('./passport')(passport)
+// require('./passport')(passport)
+// const client = new MongoClient(uri);
 
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+// async function run() {
+//   try {
+//     const database = client.db('SpareIT');
+//     const movies = database.collection('products');
+//     // Query for a movie that has the title 'Back to the Future'
+//     // const query = { title: 'Back to the Future' };
+//     const query = {title: 'Inner Axle HDK Japan For Honda Civic 2007-2012 LH'}
+//     const products = await movies.find(query);
+//     console.log(products);
+//   } finally {
+//     // Ensures that the client will close when you finish/error
+//     await client.close();
+//   }
+// }
+// run().catch(console.dir);
 
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("Pinged your deployment. You successfully connected to MongoDB!");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
 
-// db()
+
+// const client = new MongoClient(uri, {
+//   serverApi: {
+//     version: ServerApiVersion.v1,
+//     strict: true,
+//     deprecationErrors: true,
+//   }
+// });
+
+// async function run() {
+//   try {
+//     // Connect the client to the server	(optional starting in v4.7)
+//     await client.connect();
+//     // Send a ping to confirm a successful connection
+//     await client.db("SpareIT").command({ ping: 1 });
+//     console.log("Pinged your deployment. You successfully connected to MongoDB!");
+//   } finally {
+//     // Ensures that the client will close when you finish/error
+//     await client.close();
+//   }
+// }
+// run().catch(console.dir);
+
+db()
 app.use(express.json())
 
 // app.use(cors()) // for deployment comment out
@@ -75,13 +96,13 @@ app.use("/api/revenue", revenueRoute)
 
 
 
-app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {secure: false}, // this won't work without https
-    store: MongoStore.create({ mongoUrl: process.env.MONGO_URL })
-  }));
+// app.use(session({
+//     secret: 'keyboard cat',
+//     resave: false,
+//     saveUninitialized: false,
+//     cookie: {secure: false}, // this won't work without https
+//     store: MongoStore.create({ mongoUrl: process.env.MONGO_URL })
+//   }));
 
 app.use(session({
     secret: 'keyboard cat',

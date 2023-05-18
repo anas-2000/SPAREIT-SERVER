@@ -83,7 +83,7 @@ dotenv.config()
 db()
 app.use(express.json())
 
-// app.use(cors()) // for deployment comment out
+app.use(cors()) // for deployment comment out
 app.use("/api/auth", authRoute)
 app.use("/api/users", userRoute)
 app.use("/api/products", productRoute)
